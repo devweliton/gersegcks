@@ -1,14 +1,15 @@
 header{
     background-color: #007e7a;
-    font-family: 'Vale Sans','arial', 'Times New Roman', sans-serif
+    font-family: 'Vale Sans','arial', 'Times New Roman', sans-serif;
+    padding: 20px
 } h1, h2{
-    color: fff;
+    color: #007e7a
 
 } li{
     text-decoration: none;
-    color: #007e7a;
+    color: #007e7a
 }
 a{
     text-decoration: none;
-    color: #ecbf11;
-}
+    color: #ecbf11
+} 
