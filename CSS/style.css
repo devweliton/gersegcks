@@ -1,5 +1,14 @@
 header{
     background-color: #007e7a;
-    color: #fff;
     font-family: 'Vale Sans','arial', 'Times New Roman', sans-serif
+} h1, h2{
+    color: fff;
+
+} li{
+    text-decoration: none;
+    color: #007e7a;
+}
+a{
+    text-decoration: none;
+    color: #ecbf11;
 }
