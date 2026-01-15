@@ -13,4 +13,8 @@ header{
 .li a{
     text-decoration: none;
     color: #ecbf11
-} 
+} .header img {
+  padding: 0px;
+  width: auto;
+  height: 100px;
+}
