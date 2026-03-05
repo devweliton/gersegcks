@@ -8,7 +8,7 @@
 /* Fundo geral da página */
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Times New Roman", sans-serif;
-  background: #f5f7f7;            /* leve para contrastar com os cards/links */
+  background: #007e7a;            /* leve para contrastar com os cards/links */
   color: #1d2b2a;                  /* texto padrão legível */
   line-height: 1.5;
 }
