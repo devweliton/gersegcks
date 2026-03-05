@@ -1,4 +1,4 @@
-.header{
+header{
     background-color: #007e7a;
     font-family: 'Vale Sans','arial', 'Times New Roman', sans-serif;
     padding: 20px
@@ -17,4 +17,7 @@ a{
   padding: 0px;
   width: auto;
   height: 100px;
+}
+img{
+
 }
