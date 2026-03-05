@@ -1,16 +1,16 @@
-header{
+.header{
     background-color: #007e7a;
     font-family: 'Vale Sans','arial', 'Times New Roman', sans-serif;
     padding: 20px
 }
-.body h1, h2{
-    text-color: #007e7a
+.header h1, h2{
+    color: #007e7a
 
-} .lu li{
+} li{
     text-decoration: none;
     color: #007e7a
 }
-.li a{
+a{
     text-decoration: none;
     color: #ecbf11
 } .header img {
