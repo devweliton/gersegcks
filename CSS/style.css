@@ -112,6 +112,7 @@ main {
   cursor: pointer;
   padding: 14px 16px;
   color: #0d6e6a;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;
