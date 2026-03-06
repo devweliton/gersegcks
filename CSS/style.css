@@ -52,7 +52,7 @@ main {
 
 /* Lista de links */
 .link-list {
-  list-style: none;                /* remove marcadores */
+  list-style: none;
   display: grid;
   gap: 12px;
 }
@@ -72,7 +72,7 @@ main {
 
 /* Acessibilidade: foco visível para teclado */
 .link-list li a:focus {
-  outline: 3px solid #ecbf11;      /* amarelo Vale */
+  outline: 3px solid #ecbf11;      
   outline-offset: 2px;
 }
 
@@ -112,7 +112,6 @@ main {
   cursor: pointer;
   padding: 14px 16px;
   color: #0d6e6a;
-  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: space-between;
