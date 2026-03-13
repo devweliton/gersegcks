@@ -131,7 +131,8 @@ main {
 
 /* Gira o chevron quando aberto */
 .link-list li.expandable details[open] summary .chevron {
-  transform: rotate(45deg);
+  transform: rotate(405deg);
+  transition: 0.4ms;
 }
 
 /* Foco visível para teclado */
