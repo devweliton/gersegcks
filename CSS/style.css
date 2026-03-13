@@ -107,6 +107,22 @@ main {
   transition: 0.2s;
 }
 
+/* Container animável da área expandida */
+.link-list li.expandable .details-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 300ms ease, opacity 200ms ease;
+}
+
+
+/* Quando aberto, expande até o limite definido */
+.link-list li.expandable[open] .details-body {
+  max-height: 800px;  /* ajuste para comportar seu conteúdo */
+  opacity: 1;
+}
+
+
 /* Summary como “cabeçalho do card” */
 .link-list li.expandable summary {
   list-style: none;               /* remove triângulo padrão do summary */
