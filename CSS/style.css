@@ -104,7 +104,7 @@ main {
 .link-list li.expandable details[open] {
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   border-color: #c8d9d8;
-  transition: 0.8ms;
+  transition: 0.2s;
 }
 
 /* Summary como “cabeçalho do card” */
@@ -140,7 +140,7 @@ main {
 /* Gira o chevron quando aberto */
 .link-list li.expandable details[open] summary .chevron {
   transform: rotate(45deg);
-  transition: 0.8ms;
+  transition: transform 200ms ease;
 }
 
 /* Foco visível para teclado */
