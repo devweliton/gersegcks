@@ -1,131 +1,84 @@
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ===== Reset básico ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Fundo geral da página */
+/* ===== Base ===== */
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Times New Roman", sans-serif;
-  background: #007e7a;            /* leve para contrastar com os cards/links */
-  color: #1d2b2a;                  /* texto padrão legível */
+  background: #007e7a;
+  color: #1d2b2a;
   line-height: 1.5;
 }
 
-/* Header cabeçalho*/
+/* ===== Header ===== */
 header.header {
-  background-color: #007e7a;       
-  color: #ffffff;                  
+  background-color: #007e7a;
+  color: #ffffff;
   padding: 20px;
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* Logo */
-header.header .logo {
-  height: 64px;
-  width: auto;
-  display: block;
-}
+header.header .logo { height: 64px; width: auto; display: block; }
 
-/* Títulos dentro do header */
 header.header .titles h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffffff;                  /* garante contraste no header */
+  color: #ffffff;
 }
-
 header.header .titles h2 {
   font-size: 1rem;
   font-weight: 500;
-  color: #e3f7f6;     }            
-
-/* Área principal */
-main {
-  max-width: 800px;
-  margin: 24px auto;
-  padding: 0 16px;
+  color: #e3f7f6;
 }
 
-/* Lista de links */
+/* ===== Main ===== */
+main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
+
+/* ===== Lista de links (grid) ===== */
 .link-list {
   list-style: none;
   display: grid;
   gap: 12px;
 }
 
-/* Cada item como “botão” */
+/* Cada link como “card” */
 .link-list li a {
   display: block;
   padding: 14px 16px;
   background: #ffffff;
-  color: #0d6e6a;                  /* tom coerente com o tema */
+  color: #0d6e6a;
   text-decoration: none;
   border: 1px solid #d7e4e3;
   border-radius: 10px;
   transition: background 0.2s ease, transform 0.05s ease, box-shadow 0.2s ease;
   font-weight: 600;
 }
+.link-list li a:focus { outline: 3px solid #ecbf11; outline-offset: 2px; }
+.link-list li a:hover { background: #f2fbfb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.link-list li a:active { transform: translateY(1px); }
 
-/* Acessibilidade: foco visível para teclado */
-.link-list li a:focus {
-  outline: 3px solid #ecbf11;      
-  outline-offset: 2px;
-}
-
-/* Hover/active */
-.link-list li a:hover {
-  background: #f2fbfb;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.link-list li a:active {
-  transform: translateY(1px);
-}
-
-/* Responsividade leve */
+/* 2 colunas a partir de 640px */
 @media (min-width: 640px) {
-  .link-list {
-    grid-template-columns: 1fr 1fr; /* 2 colunas */
-  }
+  .link-list { grid-template-columns: 1fr 1fr; }
 }
 
+/* ===== Bloco expansível (details) ===== */
 .link-list li.expandable details {
   border: 1px solid #d7e4e3;
   border-radius: 10px;
   background: #ffffff;
-  overflow: hidden; /* mantém cantos arredondados */
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
-
 }
-
 .link-list li.expandable details[open] {
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   border-color: #c8d9d8;
-  transition: 0.2s;
 }
 
-/* Container animável da área expandida */
-.link-list li.expandable .details-body {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 300ms ease, opacity 200ms ease;
-}
-
-
-/* Quando aberto, expande até o limite definido */
-.link-list li.expandable[open] .details-body {
-  max-height: 800px;  /* ajuste para comportar seu conteúdo */
-  opacity: 1;
-}
-
-
-/* Summary como “cabeçalho do card” */
+/* Cabeçalho do card (summary) */
 .link-list li.expandable summary {
-  list-style: none;               /* remove triângulo padrão do summary */
+  list-style: none;
   cursor: pointer;
   padding: 14px 16px;
   color: #0d6e6a;
@@ -136,52 +89,60 @@ main {
   user-select: none;
 }
 
-.link-list li.expandable summary::-webkit-details-marker {
-  display: none;}
+/* Remove o marcador nativo do summary (Chrome/Safari) */
+.link-list li.expandable summary::-webkit-details-marker { display: none; }
 
-/* Ícone/chevron customizado à direita */
-.link-list li.expandable summary .chevron {
-  width: 10px;
-  height: 10px;
+/* Chevron feito com bordas, posicionado via pseudo-elemento */
+.link-list li.expandable summary::after {
+  content: "";
+  width: 10px; height: 10px;
   display: inline-block;
+  margin-left: 10px;
   border-right: 2px solid #0d6e6a;
   border-bottom: 2px solid #0d6e6a;
+
+  /* posição inicial (fechado): “>” inclinado */
   transform: rotate(-45deg);
-  transform-origin: center;       
-  transition: transform 200ms ease;
-
-  margin-left: 10px;
+  transform-origin: center;
+  transition: transform 200ms ease; /* transição no estado base */
 }
 
-/* Gira o chevron quando aberto */
-.link-list li.expandable details[open] summary .chevron {
-  transform: rotate(45deg);
-  transition: transform 200ms ease;
+/* Gira o chevron quando o <details> está aberto */
+.link-list li.expandable details[open] summary::after {
+  transform: rotate(135deg); /* sensação de “abrir para baixo” */
 }
 
-/* Foco visível para teclado */
 .link-list li.expandable summary:focus {
-  outline: 3px solid #ecbf11; /* amarelo destaque */
+  outline: 3px solid #ecbf11;
   outline-offset: 2px;
   border-radius: 8px;
 }
+.link-list li.expandable summary:hover { background: #f2fbfb; }
 
-/* Hover suave */
-.link-list li.expandable summary:hover {
-  background: #f2fbfb;
+/* ===== Corpo do bloco expansível (animação de expansão) ===== */
+.link-list li.expandable .details-body {
+  overflow: hidden;
+  max-height: 0;   /* colapsado */
+  opacity: 0;
+  transition: max-height 300ms ease, opacity 200ms ease;
 }
 
-/* Lista interna de sublinks */
+/* IMPORTANTE: [open] está no <details> */
+.link-list li.expandable details[open] .details-body {
+  max-height: 800px; /* aumente se o conteúdo crescer */
+  opacity: 1;
+}
+
+/* ===== Sublinks ===== */
 .sub-link-list {
   list-style: none;
   display: grid;
   gap: 8px;
-  padding: 10px 12px 14px 12px; /* respiro interno */
+  padding: 10px 12px 14px 12px;
   border-top: 1px solid #eef4f3;
   background: #fcfefe;
 }
 
-/* Sub-itens com visual de links normais em bloco */
 .sub-link-list a {
   display: block;
   padding: 10px 12px;
@@ -193,26 +154,17 @@ main {
   transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.05s ease;
   font-weight: 600;
 }
+.sub-link-list a:hover { background: #f6fbfb; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.sub-link-list a:active { transform: translateY(1px); }
+.sub-link-list a:focus { outline: 3px solid #ecbf11; outline-offset: 2px; }
 
-/* Hover/active nos sublinks */
-.sub-link-list a:hover {
-  background: #f6fbfb;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-}
-
-.sub-link-list a:active {
-  transform: translateY(1px);
-}
-
-/* Foco visível também nos sublinks */
-.sub-link-list a:focus {
-  outline: 3px solid #ecbf11;
-  outline-offset: 2px;
-}
-
-/* Ajuste para tema responsivo já existente */
+/* Sublinks em 2 colunas no desktop */
 @media (min-width: 640px) {
-  .sub-link-list {
-    grid-template-columns: 1fr 1fr;
-  }
+  .sub-link-list { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== Acessibilidade: reduzir movimento ===== */
+@media (prefers-reduced-motion: reduce) {
+  .link-list li.expandable summary::after { transition: none; }
+  .link-list li.expandable .details-body { transition: none; }
 }
