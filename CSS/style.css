@@ -124,7 +124,7 @@ main {
   height: 10px;
   border-right: 2px solid #0d6e6a;
   border-bottom: 2px solid #0d6e6a;
-  transform: rotate(-405deg);
+  transform: rotate(-45deg);
   transition: 0.8s;
   margin-left: 10px;
 }
