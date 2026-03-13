@@ -1,5 +1,4 @@
-
-/* ===== Reset básico ===== */
+/* ===== Reset ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* ===== Base ===== */
@@ -19,31 +18,16 @@ header.header {
   align-items: center;
   gap: 16px;
 }
-
 header.header .logo { height: 64px; width: auto; display: block; }
-
-header.header .titles h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-header.header .titles h2 {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #e3f7f6;
-}
+header.header .titles h1 { font-size: 1.8rem; font-weight: 700; color: #ffffff; }
+header.header .titles h2 { font-size: 1rem; font-weight: 500; color: #e3f7f6; }
 
 /* ===== Main ===== */
 main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
 
-/* ===== Lista de links (grid) ===== */
-.link-list {
-  list-style: none;
-  display: grid;
-  gap: 12px;
-}
+/* ===== Lista de links ===== */
+.link-list { list-style: none; display: grid; gap: 12px; }
 
-/* Cada link como “card” */
 .link-list li a {
   display: block;
   padding: 14px 16px;
@@ -59,12 +43,10 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
 .link-list li a:hover { background: #f2fbfb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .link-list li a:active { transform: translateY(1px); }
 
-/* 2 colunas a partir de 640px */
-@media (min-width: 640px) {
-  .link-list { grid-template-columns: 1fr 1fr; }
-}
+/* 2 colunas no desktop */
+@media (min-width: 640px) { .link-list { grid-template-columns: 1fr 1fr; } }
 
-/* ===== Bloco expansível (details) ===== */
+/* ===== Bloco expansível ===== */
 .link-list li.expandable details {
   border: 1px solid #d7e4e3;
   border-radius: 10px;
@@ -76,7 +58,7 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   border-color: #c8d9d8;
 }
 
-/* Cabeçalho do card (summary) */
+/* Summary (cabeçalho do bloco) */
 .link-list li.expandable summary {
   list-style: none;
   cursor: pointer;
@@ -88,11 +70,9 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   justify-content: space-between;
   user-select: none;
 }
-
-/* Remove o marcador nativo do summary (Chrome/Safari) */
 .link-list li.expandable summary::-webkit-details-marker { display: none; }
 
-/* Chevron feito com bordas, posicionado via pseudo-elemento */
+/* Chevron via pseudo-elemento */
 .link-list li.expandable summary::after {
   content: "";
   width: 10px; height: 10px;
@@ -101,16 +81,11 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   border-right: 2px solid #0d6e6a;
   border-bottom: 2px solid #0d6e6a;
 
-  /* posição inicial (fechado): “>” inclinado */
   transform: rotate(-45deg);
   transform-origin: center;
-  transition: transform 200ms ease; /* transição no estado base */
+  transition: transform 200ms ease;
 }
-
-/* Gira o chevron quando o <details> está aberto */
-.link-list li.expandable details[open] summary::after {
-  transform: rotate(135deg); /* sensação de “abrir para baixo” */
-}
+.link-list li.expandable details[open] summary::after { transform: rotate(135deg); }
 
 .link-list li.expandable summary:focus {
   outline: 3px solid #ecbf11;
@@ -119,19 +94,17 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
 }
 .link-list li.expandable summary:hover { background: #f2fbfb; }
 
-/* ===== Corpo do bloco expansível (animação de expansão) ===== */
+/* ===== Corpo animável ===== */
 .link-list li.expandable .details-body {
   overflow: hidden;
-  max-height: 0;   /* colapsado */
+  max-height: 0;     /* colapsado por padrão */
   opacity: 0;
+  /* transições aplicadas pelo JS; mantemos aqui para fallback leve */
   transition: max-height 300ms ease, opacity 200ms ease;
 }
 
-/* IMPORTANTE: [open] está no <details> */
-.link-list li.expandable details[open] .details-body {
-  max-height: 800px; /* aumente se o conteúdo crescer */
-  opacity: 1;
-}
+/* NÃO definimos regra "details[open] .details-body" para evitar salto.
+   O JS controla a altura e a opacidade dinamicamente. */
 
 /* ===== Sublinks ===== */
 .sub-link-list {
@@ -142,7 +115,6 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   border-top: 1px solid #eef4f3;
   background: #fcfefe;
 }
-
 .sub-link-list a {
   display: block;
   padding: 10px 12px;
@@ -158,10 +130,8 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
 .sub-link-list a:active { transform: translateY(1px); }
 .sub-link-list a:focus { outline: 3px solid #ecbf11; outline-offset: 2px; }
 
-/* Sublinks em 2 colunas no desktop */
-@media (min-width: 640px) {
-  .sub-link-list { grid-template-columns: 1fr 1fr; }
-}
+/* Sublinks em 2 colunas */
+@media (min-width: 640px) { .sub-link-list { grid-template-columns: 1fr 1fr; } }
 
 /* ===== Acessibilidade: reduzir movimento ===== */
 @media (prefers-reduced-motion: reduce) {
