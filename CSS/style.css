@@ -120,14 +120,20 @@ main {
   user-select: none;
 }
 
+.link-list li.expandable summary::-webkit-details-marker {
+  display: none;}
+
 /* Ícone/chevron customizado à direita */
 .link-list li.expandable summary .chevron {
   width: 10px;
   height: 10px;
+  display: inline-block;
   border-right: 2px solid #0d6e6a;
   border-bottom: 2px solid #0d6e6a;
   transform: rotate(-45deg);
-  transition: rotate(45deg) 0.8ms;
+  transform-origin: center;       
+  transition: transform 200ms ease;
+
   margin-left: 10px;
 }
 
