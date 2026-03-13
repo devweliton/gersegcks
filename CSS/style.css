@@ -98,7 +98,7 @@ main {
   background: #ffffff;
   overflow: hidden; /* mantém cantos arredondados */
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
-  transition: 0.8ms;
+
 }
 
 .link-list li.expandable details[open] {
@@ -124,12 +124,10 @@ main {
 .link-list li.expandable summary .chevron {
   width: 10px;
   height: 10px;
-  display: inline-block;
   border-right: 2px solid #0d6e6a;
   border-bottom: 2px solid #0d6e6a;
   transform: rotate(-45deg);
-  transform-origin: center;
-  transition: transform 0.8ms ease;
+  transition: transform 0.8ms;
   margin-left: 10px;
 }
 
