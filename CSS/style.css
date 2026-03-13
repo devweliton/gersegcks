@@ -124,15 +124,15 @@ main {
   height: 10px;
   border-right: 2px solid #0d6e6a;
   border-bottom: 2px solid #0d6e6a;
-  transform: rotate(-45deg);
-  transition: transform 0.2s ease;
+  transform: rotate(-405deg);
+  transition: transform 0.8s ease;
   margin-left: 10px;
 }
 
 /* Gira o chevron quando aberto */
 .link-list li.expandable details[open] summary .chevron {
   transform: rotate(405deg);
-  transition: 0.4ms;
+  transition: 0.8ms;
 }
 
 /* Foco visível para teclado */
