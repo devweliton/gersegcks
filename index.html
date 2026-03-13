@@ -10,6 +10,39 @@
 
 </head>
 
+<script>
+  document.querySelectorAll('li.expandable > details').forEach(details => {
+    const body = details.querySelector('.details-body');
+    if (!body) return;
+
+    const setState = (open) => {
+      body.style.overflow = 'hidden';
+      body.style.transition = 'max-height 300ms ease, opacity 200ms ease';
+      if (open) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.style.opacity = '1';
+      } else {
+        body.style.maxHeight = '0px';
+        body.style.opacity = '0';
+      }
+    };
+
+    // Estado inicial
+    setState(details.open);
+
+    // Anima no toggle
+    details.addEventListener('toggle', () => setState(details.open));
+
+    // Ajusta se o conteúdo interno mudar de altura
+    const ro = new ResizeObserver(() => {
+      if (details.open) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+    ro.observe(body);
+  });
+</script>
+
 <body>
   <header class="header">
     <img src="IMG/g1.png" alt="Logo da equipe GSO MFE" class="logo" />
@@ -72,7 +105,7 @@
       </li>
       
     </ul>
-    </div>
+</div>
   </details>
 </li>
 
