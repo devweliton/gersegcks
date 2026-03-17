@@ -50,12 +50,12 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
 .link-list li.expandable details {
   border: 1px solid #d7e4e3;
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0,0,0,0);
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .link-list li.expandable details[open] {
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  border-color: #c8d9d8;
+  border-color: rgba(0, 0, 0, 0);
 }
 
 /* Summary (cabeçalho do bloco) */
