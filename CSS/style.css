@@ -55,7 +55,7 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
 }
 .link-list li.expandable details[open] {
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-  border-color: rgba(0, 0, 0, 0);
+  border-color: #c8d9d8;
 }
 
 /* Summary (cabeçalho do bloco) */
@@ -92,7 +92,7 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   outline-offset: 2px;
   border-radius: 8px;
 }
-.link-list li.expandable summary:hover { background: #f2fbfb; }
+.link-list li.expandable summary:hover { background: rgba(0, 0, 0, 0) }
 
 /* ===== Corpo animável ===== */
 .link-list li.expandable .details-body {
