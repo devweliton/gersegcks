@@ -115,7 +115,7 @@ main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
   padding: 10px 12px 14px 12px;
   border-top: 1px solid #eef4f3;
   background: #fcfefe;
-   border-radius: 0px 0px 10px 0px;
+  border-radius: 0px 10px;
 }
 .sub-link-list a {
   display: block;
